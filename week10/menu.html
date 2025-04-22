@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Nhà Hàng</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        #menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .menu-item {
+            padding: 10px 15px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: center;
+            flex: 1 1 calc(25% - 20px); /* Hiển thị 4 món trên một hàng */
+            box-sizing: border-box;
+        }
+        .menu-item.hidden {
+            display: none;
+        }
+        button {
+            margin: 10px 5px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>MENU Nhà Hàng</h1>
+    <button onclick="toggleDisplayMode()">Chuyển đổi chế độ hiển thị</button>
+
+    <div id="menu">
+        <div class="menu-item">Gỏi cuốn</div>
+        <div class="menu-item">Chả giò</div>
+        <div class="menu-item">Cơm tấm</div>
+        <div class="menu-item">Phở bò</div>
+        <div class="menu-item">Chè ba màu</div>
+        <div class="menu-item">Bánh flan</div>
+        <div class="menu-item">Bún bò Huế</div>
+        <div class="menu-item">Bánh xèo</div>
+    </div>
+
+    <script>
+        let isHorizontal = true;
+
+        function toggleDisplayMode() {
+            const menu = document.getElementById('menu');
+            if (isHorizontal) {
+                menu.style.flexDirection = 'column'; // Hiển thị nối tiếp nhau
+            } else {
+                menu.style.flexDirection = 'row'; // Hiển thị ngang hàng
+            }
+            isHorizontal = !isHorizontal;
+        }
+    </script>
+</body>
+</html>

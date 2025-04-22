@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" id="main-form">
+        <input type="number" id="number1" placeholder="Enter a number">
+        <br>
+        <button type="button" onclick="checkNumber();" id="check-button">Check</button>
+        <button type="button" onclick="resetNew();" id="reset-button" style="display: none;">Reset</button>
+        <p id="result" style="color: red;"></p>
+    </form>
+<script>
+    function checkNumber() {
+        // Show reset button
+        document.getElementById("reset-button").style.display = "block";
+        // Hide check button
+        document.getElementById("check-button").style.display = "none";
+        
+        var x = parseInt(document.getElementById("number1").value);
+        var result = document.getElementById("result");
+
+        if (isNaN(x)) {
+            result.innerHTML = "Please enter a valid number.";
+            return;
+        }
+
+        if (x % 2 === 0) {
+            result.innerHTML = `<span style="color: green; font-weight: bold;">${x} is Even</span>.`;
+        } else {
+            result.innerHTML = `<span style="color: red; font-weight: bold;">${x} is Odd</span>.`;
+        }
+    }
+
+    function resetNew() {
+        // Reset the result text
+        document.getElementById("result").innerHTML = "";
+        // Reset the input
+        document.getElementById("number1").value = "";
+        // Hide reset button
+        document.getElementById("reset-button").style.display = "none";
+        // Show check button
+        document.getElementById("check-button").style.display = "block";
+    }
+</script>
+</body>
+</html>
